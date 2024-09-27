@@ -1,0 +1,31 @@
+import random
+from random import randint
+random.seed(4)
+s1 = randint(1, 13)
+s2 = randint(1, 13)
+s3 = randint(1, 13)
+print(s1, s2, s3)
+
+print('Задание 2.1')
+cnt_d = int(input('Введите количество девочек'))
+i1 = 1
+s1 = 0
+sr_rd = 0
+while cnt_d >= i1:
+    rost_d = float(input('Введите рост' + str(i1) + '-ой девочки'))
+    i1 += 1
+    s1 += rost_d
+sr_rd = s1//cnt_d
+print(sr_rd)
+
+
+cnt_m = int(input('Введите количество мальчиков'))
+i2 = 1
+s2 = 0
+sr_rm = 0
+while cnt_m >= i2:
+    rost_m = float(input('Введите рост' + str(i1) + '-го мальчика'))
+    i2 += 1
+    s2 += rost_m
+sr_rm = s2//cnt_m
+print(sr_rm)
