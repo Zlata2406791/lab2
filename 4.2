@@ -1,0 +1,20 @@
+print('Задача 4.2')
+import math
+def circle(x, y, a, b, r1, r2):
+    d = (x-a)**2+(y-b)**2
+    return r1**2 <= d <= r2**2
+a = float(input('Введите координату Х'))
+b = float(input('Введите координату Y'))
+r1 = float(input('Введите радиус'))
+r2 = float(input('Введите радиус'))
+count = 0
+while True:
+    try:
+        x = float(input('Введите координату Х точки или букву для выхода'))
+        y = float(input('Введите координату Y точки или букву для выхода'))
+        if circle(x, y, a, b, r1, r2) == True:
+            count += 1
+    except:
+        print('Выход из программы')
+        break
+print(count)
