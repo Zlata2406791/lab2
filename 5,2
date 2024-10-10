@@ -1,0 +1,9 @@
+print('Задание 5.2')
+normativ = float(input("Введите норматив (время в секундах): "))
+num_athletes = 30
+count = 0
+for i in range(1, num_athletes + 1):
+    result = float(input("Введите результат спортсмена " + str(i) + "(время в секундах): "))
+    if result <= normativ:
+        count += 1
+print("Количество спортсменов, выполнивших норматив:", count)
