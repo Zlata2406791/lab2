@@ -1,19 +1,15 @@
 print('Задача 3.2')
+print('lab2 2 уровень 2 задание')
 import math
-def circle(x, y, a, b, r):
-    d = (x-a)**2+(y-b)**2
-    return d <= r**2
-a = float(input('Введите координату Х'))
-b = float(input('Введите координату Y'))
-r = float(input('Введите радиус'))
-count = 0
-while True:
-    try:
-        x = float(input('Введите координату Х точки или букву для выхода'))
-        y = float(input('Введите координату Y точки или букву для выхода'))
-        if circle(x, y, a, b, r) == True:
-            count += 1
-    except:
-        print('Выход из программы')
-        break
-print(count)
+r = float(input('Введите радиус круга'))
+a = float(input('Введите координату x центра круга'))
+b = float(input('Введите координату y центра круга'))
+n = int(input('Введите количество точек'))
+cnt = 0
+for i in range(n):
+    x = float(input('Введите координату x точки'))
+    y = float(input('Введите координату y точки'))
+    t = math.sqrt((x-a)**2+(y-b)**2)
+    if t<=r:
+        cnt += 1
+print('Количество точек:', cnt)
