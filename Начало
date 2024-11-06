@@ -1,0 +1,7 @@
+import random
+from random import randint
+random.seed(4)
+s1 = randint(1, 13)
+s2 = randint(1, 13)
+s3 = randint(1, 13)
+print(s1, s2, s3)
