@@ -1,0 +1,25 @@
+# В компьютер вводятся координаты и точек, лежащих на плоскости. Напечатать номер точки, ближайшей к началу координат, и величину расстояния от нее до начала координат.
+print('Дополнительное задание 2.8')
+import math
+n = int(input("Введите количество точек: "))
+if n < 1:
+    print("Количество точек должно быть больше 0.")
+else:
+    points = []
+    for i in range(n):
+        while True:
+            try:
+                x, y = map(float, input(f"Введите координаты точки {i + 1} (x y): ").split())
+                points.append((x, y))
+                break
+            except ValueError:
+                print("Ошибка ввода. Пожалуйста, введите два числовых значения.")
+    c_d = float('inf')
+    c_index = -1
+    for i, (x, y) in enumerate(points):
+        d = math.sqrt(x**2 + y**2)
+        if d < c_d:
+            c_d = d
+            c_index = i + 1
+    print(f"Номер ближайшей точки: ", c_index)
+    print(f"Расстояние от нее до начала координат: ", c_d)
