@@ -1,16 +1,26 @@
 # Решить задачи II уровня для случая, когда количество данных заранее (до начала выполнения программы) неизвестно. В программе необходимо обеспечить прекращение ввода, как только входной поток иссякнет.
 print('Задача 3.2')
-print('lab2 2 уровень 2 задание')
 import math
-r = float(input('Введите радиус круга'))
-a = float(input('Введите координату x центра круга'))
-b = float(input('Введите координату y центра круга'))
-n = int(input('Введите количество точек'))
-cnt = 0
-for i in range(n):
-    x = float(input('Введите координату x точки'))
-    y = float(input('Введите координату y точки'))
-    t = math.sqrt((x-a)**2+(y-b)**2)
-    if t<=r:
-        cnt += 1
-print('Количество точек:', cnt)
+def is_point_inside_circle(x, y, a, b, r):
+    return (x - a) ** 2 + (y - b) ** 2 < r ** 2
+def main():
+    a = float(input("Введите координату x центра круга: "))
+    b = float(input("Введите координату y центра круга: "))
+    r = float(input("Введите радиус круга: "))
+    count_inside = 0
+    print("Введите координаты точек (введите 'stop' для завершения ввода):")
+    while True:
+        x_input = input("Введите x координату точки: ")
+        if x_input.lower() == 'stop':
+            break
+        y_input = input("Введите y координату точки: ")
+        try:
+            x = float(x_input)
+            y = float(y_input)
+            if is_point_inside_circle(x, y, a, b, r):
+                count_inside += 1
+        except ValueError:
+            print("Пожалуйста, введите действительные числа для координат.")
+    print(f"Количество точек, попадающих в круг: {count_inside}")
+if __name__ == "__main__":
+    main()
