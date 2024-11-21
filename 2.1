@@ -1,24 +1,32 @@
 # Определить средний рост девочек и мальчиков одного класса. В классе учится n учеников.
 print('Задание 2.1')
-cnt_d = int(input('Введите количество девочек'))
-i1 = 1
-s1 = 0
-sr_rd = 0
-while cnt_d >= i1:
-    rost_d = float(input('Введите рост' + str(i1) + '-ой девочки'))
-    i1 += 1
-    s1 += rost_d
-sr_rd = s1//cnt_d
-print(sr_rd)
-
-
-cnt_m = int(input('Введите количество мальчиков'))
-i2 = 1
-s2 = 0
-sr_rm = 0
-while cnt_m >= i2:
-    rost_m = float(input('Введите рост' + str(i1) + '-го мальчика'))
-    i2 += 1
-    s2 += rost_m
-sr_rm = s2//cnt_m
-print(sr_rm)
+def main():
+    n = int(input("Введите количество учеников в классе: "))
+    girls_height = 0
+    boys_height = 0
+    girls_count = 0
+    boys_count = 0
+    for i in range(n):
+        sex = input("Введите пол ученика (м - мальчик, ж - девочка): ").strip().lower()
+        height = float(input("Введите рост ученика (в сантиметрах): "))
+        if sex == 'ж':
+            girls_height += height
+            girls_count += 1
+        elif sex == 'м':
+            boys_height += height
+            boys_count += 1
+        else:
+            print("Неверный ввод. Пожалуйста, введите 'м' для мальчика и 'ж' для девочки.")
+            continue
+    if girls_count > 0:
+        average_girls_height = girls_height / girls_count
+        print(f"Средний рост девочек: {average_girls_height:.2f} см")
+    else:
+        print("Нет девочек в классе.")
+    if boys_count > 0:
+        average_boys_height = boys_height / boys_count
+        print(f"Средний рост мальчиков: {average_boys_height:.2f} см")
+    else:
+        print("Нет мальчиков в классе.")
+if __name__ == "__main__":
+    main()
